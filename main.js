@@ -26,19 +26,19 @@ function scrollToTop(element, d) {
 
 let lock = false;
 
-for (const element of document.getElementsByClassName('statuspage-card')) {
+Array.from(document.getElementsByClassName('statuspage-card')).forEach((element) => {
   const closeButton = element.getElementsByClassName('statuspage-card-close-icon')[0];
-  const maskBgElement = element.getElementsByClassName('statuspage-card-mask')[0];
+  const maskElement = element.getElementsByClassName('statuspage-card-mask')[0];
   const maskUnactiveElement = element.getElementsByClassName('statuspage-card-mask-unactive')[0]
   const maskActivedElement = element.getElementsByClassName('statuspage-card-mask-actived')[0]
   function maskBgUnactive() {
-    maskBgElement.style.height = maskUnactiveElement.clientHeight + 'px';
+    maskElement.style.height = maskUnactiveElement.clientHeight + 'px';
   }
   function maskBgActived() {
-    maskBgElement.style.height = maskActivedElement.clientHeight + 'px';
+    maskElement.style.height = maskActivedElement.clientHeight + 'px';
   }
 
-  const maskAnimation = !!maskBgElement && !!maskUnactiveElement && !!maskActivedElement
+  const maskAnimation = !!maskElement && !!maskUnactiveElement && !!maskActivedElement
 
   element.addEventListener('click', () => {
     if (lock) return;
@@ -109,12 +109,12 @@ for (const element of document.getElementsByClassName('statuspage-card')) {
       element.style.zIndex = '';
       if (maskAnimation) {
         maskUnactiveElement.style.width = '';
-        maskBgElement.style.height = '';
+        maskElement.style.height = '';
       }
       lock = false;
     }
   });
-}
+})
 
 function getMonitors(apikey, args) {
   const params = new URLSearchParams(Object.assign({},{

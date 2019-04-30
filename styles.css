@@ -151,12 +151,17 @@ abbr, address, article, aside, audio, b, blockquote, body, canvas, caption, cite
 .statuspage-card#active {
   position : fixed;
   z-index: 1000;
-  left: 50%;
+  left: calc(50% - var(--card-active-width) / 2);
   top: var(--card-active-offset-top);
   width: var(--card-active-width);
   height: calc(100% - var(--card-active-offset-top) + var(--card-active-offset-bottom));
-  transform: translateX(-50%);
   overflow-y: auto;
+}
+
+@media (max-width: 768px) {
+  .statuspage-card#active {
+    left: 0%;
+  }
 }
 
 .statuspage-card-bg {
@@ -281,11 +286,13 @@ abbr, address, article, aside, audio, b, blockquote, body, canvas, caption, cite
   z-index: 1;
   transition: opacity 0.7s ease;
   opacity: 0;
+  touch-action: none;
 }
 
 @media (max-width: 768px) {
   .statuspage-card#active .statuspage-card-close-icon {
     opacity: 0.4;
+    touch-action: auto;
   }
 }
 
