@@ -1,0 +1,362 @@
+body {
+  margin: 0;
+  -webkit-font-smoothing: antialiased;
+  background: #fafafa;
+  font-family: -apple-system, system-ui, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif;
+}
+
+#shadow {
+  display: block;
+  position: fixed;
+  z-index: 999;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: #fff;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.7s ease;
+}
+
+#shadow.on {
+  display: block;
+  pointer-events: auto;
+  opacity: .8;
+}
+
+abbr, address, article, aside, audio, b, blockquote, body, canvas, caption, cite, code, dd, del, details, dfn, div, dl, dt, em, fieldset, figcaption, figure, footer, form, h1, h2, h3, h4, h5, h6, header, hgroup, html, i, iframe, img, ins, kbd, label, legend, li, mark, menu, nav, object, ol, p, pre, q, samp, section, small, span, strong, sub, summary, sup, table, tbody, td, tfoot, th, thead, time, tr, ul, var, video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  outline: 0;
+  font-size: 100%;
+  vertical-align: baseline;
+  background: 0 0;
+  line-height: 1.6;
+}
+
+*, :after, :before {
+  box-sizing: border-box;
+}
+
+.statuspage-container {
+  --main-width: 1050px;
+  max-width: var(--main-width);
+  padding: 24px;
+  margin: 0 auto;
+}
+
+@media (max-width: 1200px) {
+  .statuspage-container {
+    --main-width: 970px;
+  }
+}
+
+@media (max-width: 992px) {
+  .statuspage-container {
+    --main-width: 750px;
+  }
+}
+
+@media (max-width: 768px) {
+  .statuspage-container {
+    --main-width: 100vw;
+  }
+}
+
+.statuspage-main {
+  display: flex;
+  position: relative;
+  flex-wrap: wrap;
+}
+
+.statuspage-header {
+  padding: 16px;
+}
+
+.statuspage-hr {
+  display: block;
+  width: 100%;
+  border-bottom: 1px solid #ccc;
+}
+
+.statuspage-title {
+  font-size: 2.4rem
+}
+
+.statuspage-card-container {
+  --card-height: 450px;
+  padding: 16px;
+  flex-basis: 50%;
+  height: calc(var(--card-height) + 16px * 2);
+}
+
+.statuspage-card-big {
+  flex-basis: 60%
+}
+
+.statuspage-card-small {
+  flex-basis: 40%
+}
+
+@media (max-width: 1200px) {
+  .statuspage-card-big,.statuspage-card-small,.statuspage-card-container {
+    flex-basis: 50%;
+  }
+}
+
+@media (max-width: 992px) {
+  .statuspage-card-big,.statuspage-card-small,.statuspage-card-container {
+    flex-basis: 100%;
+  }
+}
+
+.statuspage-card {
+  --card-active-padding: 128px;
+  --card-active-width: calc(var(--main-width) - var(--card-active-padding) * 2);
+  --card-active-offset-bottom: 6px;
+  --card-active-offset-top: 24px;
+  --card-content-horizonta-padding: 32px;
+  position: relative;
+  overflow: hidden;
+  height: var(--card-height);
+  min-height: var(--card-height);
+  box-shadow: 0px 7px 8px -4px rgba(0,0,0,0.15), 0px 12px 17px 2px rgba(0,0,0,0.10), 0px 5px 22px 4px rgba(0,0,0,0.06);
+  background-color: #ffffff;
+  border-radius: 8px;
+
+  /*will-change: position, height, width, top, left, transform;*/
+
+  transition: width 0.7s ease, 
+    height 0.7s ease, 
+    left 0.7s ease,
+    transform 0.7s ease, 
+    top 0.7s ease;
+}
+
+@media (max-width: 992px) {
+  .statuspage-card {
+    --card-active-padding: 0px;
+  }
+}
+
+@media (max-width: 768px) {
+  .statuspage-card {
+    --card-active-padding: 0px;
+    --card-active-offset-top: 0px;
+  }
+}
+
+.statuspage-card#active {
+  position : fixed;
+  z-index: 1000;
+  left: 50%;
+  top: var(--card-active-offset-top);
+  width: var(--card-active-width);
+  height: calc(100% - var(--card-active-offset-top) + var(--card-active-offset-bottom));
+  transform: translateX(-50%);
+  overflow-y: auto;
+}
+
+.statuspage-card-bg {
+  position: absolute;
+  left: 0px;
+  top: 0px;
+  width: 100%;
+  height: var(--card-height);
+  background-repeat: repeat;
+  background-position: 50% 50%;
+  background-size: cover;
+  background-origin: padding-box;
+  background-attachment: scroll;
+}
+
+.statuspage-card-style-2 .statuspage-card-bg {
+  transform: translateY(-5px)
+}
+
+.statuspage-card-title {
+  font-size: 1.6rem;
+  line-height: 1.4;
+  font-weight: 600;
+  color: rgba(0,0,0,0.9);
+}
+
+.statuspage-card-subtitle {
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: rgba(0,0,0,0.4);
+}
+
+.statuspage-card-style-1 .statuspage-card-mask {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  overflow: hidden;
+  transition: height 0.7s ease;
+}
+
+.statuspage-card-style-1 .statuspage-card-mask-bg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: var(--card-height);
+
+  background: rgba(255, 255, 255, 0.7);
+  background-repeat: repeat;
+  background-position: 50% 50%;
+  background-size: cover;
+  background-origin: padding-box;
+  background-attachment: scroll;
+  background-blend-mode: screen;
+}
+
+.statuspage-card-style-2 .statuspage-card-mask {
+  position: absolute;
+  top: var(--card-height);
+  transform: translateY(-100%);
+  left: 0;
+  width: 100%;
+  background: #fff;
+  transition: height 0.7s ease, transform 0.7s ease;
+}
+
+.statuspage-card-style-2 .statuspage-card-mask-bg {
+  display: none;
+}
+
+.statuspage-card-mask-actived {
+  opacity: 0;
+  width: calc(var(--card-active-width) - 24px * 2);
+  transition: opacity 0.7s ease;
+}
+
+.statuspage-card#active .statuspage-card-mask-actived {
+  opacity: 1;
+}
+
+.statuspage-card-mask-unactive {
+  opacity: 1;
+  transition: opacity 0.7s ease;
+}
+
+.statuspage-card-mask-unactive {
+  position: relative;
+  padding: 24px 24px 16px;
+}
+
+.statuspage-card-mask-actived {
+  position: absolute;
+  padding: 24px var(--card-content-horizonta-padding) 16px;
+}
+
+.statuspage-card#active .statuspage-card-mask-unactive {
+  position: absolute;
+  opacity: 0;
+}
+
+.statuspage-card-mask-status {
+  position: absolute;
+  right: 24px;
+  top: 24px;
+  transition: opacity 0.7s ease;
+  opacity: 1;
+}
+
+.statuspage-card#active .statuspage-card-mask-status {
+  opacity: 0;
+}
+
+.statuspage-card-close-icon {
+  position: absolute;
+  right: 24px;
+  top: 24px;
+  width: 32px;
+  height: 32px;
+  background-image: url(./close-icon.svg);
+  background-size: 100%;
+  z-index: 1;
+  transition: opacity 0.7s ease;
+  opacity: 0;
+}
+
+@media (max-width: 768px) {
+  .statuspage-card#active .statuspage-card-close-icon {
+    opacity: 0.4;
+  }
+}
+
+.statuspage-card-content {
+  position: absolute;
+  top: var(--card-height);
+  left: 0;
+  width: var(--card-active-width);
+  padding: 32px var(--card-content-horizonta-padding);
+  padding-bottom: calc(64px + var(--card-active-offset-bottom));
+  font-size: 1.2rem;
+  color: #666;
+}
+
+.statuspage-card-content-title {
+  margin: 24px 0 12px;
+  font-weight: 400;
+  font-size: 1.4rem;
+}
+
+.statuspage-card-content-subtitle {
+  margin: -10px 4px 12px;
+  font-size: 1.0rem;
+}
+
+.statuspage-card-content p {
+  margin-bottom: 16px; 
+}
+
+.statuspage-card-content a {
+  color: #000;
+  text-decoration: none;
+}
+
+.statuspage-card-content a:hover {
+  text-decoration: underline;
+}
+
+/* ------ status & events ------ */
+
+.statuspage-status-circle, .statuspage-event-circle {
+  display: inline-block;
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  margin: 0 4px;
+}
+
+/* ------ table ------ */
+
+.statuspage-table-container {
+  overflow-x: auto;
+}
+
+.statuspage-table {
+  width: 100%;
+  border-collapse:collapse;
+}
+
+.statuspage-table td,.statuspage-table th {
+  padding: 6px;
+  text-align: left;
+  font-weight: 400;
+  white-space: nowrap;
+  font-size: 1rem;
+}
+
+.statuspage-table>thead>tr>th{
+  font-size: 1rem;
+  color: #888;
+  font-weight: 400;
+  border: 0px;
+  border-bottom: 1px solid #ccc;
+}
