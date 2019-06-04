@@ -33,22 +33,22 @@ const data = {
       apikey: 'm782549967-cd936917abf3022dc35319f3',
       monitorid: '782549967'
     },
-    {
-      type: 'Ping',
-      title: '台湾 - Google Cloud Platform',
-      subtitle: '服务器',
-      style: 'statuspage-card-style-2',
-      bg: './taiwan.jpg',
-      bgblur: './taiwan-blur.jpg',
-      description: `
-      <p>
-        坐标位于台湾。Google Cloud Platform 拥有功能强大的面板，
-        运行 <a href='https://eyhn.in/' target='_blank'>eyhn.in</a> 博客。
-      </p>
-      `,
-      apikey: 'm782546630-53d450d0185542bc3b81aa28',
-      monitorid: '782546630'
-    },
+    // {
+    //   type: 'Ping',
+    //   title: '台湾 - Google Cloud Platform',
+    //   subtitle: '服务器',
+    //   style: 'statuspage-card-style-2',
+    //   bg: './taiwan.jpg',
+    //   bgblur: './taiwan-blur.jpg',
+    //   description: `
+    //   <p>
+    //     坐标位于台湾。Google Cloud Platform 拥有功能强大的面板，
+    //     运行 <a href='https://eyhn.in/' target='_blank'>eyhn.in</a> 博客。
+    //   </p>
+    //   `,
+    //   apikey: 'm782546630-53d450d0185542bc3b81aa28',
+    //   monitorid: '782546630'
+    // },
     {
       type: 'Ping',
       title: '新加坡 - Microsoft Azure',
