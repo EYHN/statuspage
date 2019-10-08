@@ -4,21 +4,6 @@ const fs = require('fs');
 const data = {
   monitors: [
     {
-      type: 'Ping',
-      title: '杭州 - Alibaba Cloud',
-      subtitle: '服务器',
-      style: 'statuspage-card-style-1',
-      bg: './hangzhou.jpg',
-      bgblur: './hangzhou-blur.jpg',
-      description: `
-      <p>
-        坐标位于杭州的阿里云服务器。主要负责各个网站在中国境内的服务。
-      </p>
-      `,
-      apikey: 'm782541558-6890e73b28d483f3e51a86fe',
-      monitorid: '782541558'
-    },
-    {
       type: 'HTTPS',
       title: 'EYHN\'s Blog',
       subtitle: '网站',

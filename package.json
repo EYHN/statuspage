@@ -1,4 +1,7 @@
 {
+  "scripts": {
+    "build": "node build.js"
+  },
   "dependencies": {
     "ejs": "^2.6.1"
   },
